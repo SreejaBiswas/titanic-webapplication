@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ml webapp</title>
+    
+  <link rel="stylesheet"  href="{{ url_for('static', filename='w3.css') }}">
+  <style type="text/css">
+     
+  .mySlides {display:none;}
+ 
+   </style>
+ </head>
+ 
+ <body>
+ 
+ <div class="w3-padding-18 w3-black w3-text-white w3- w3-center"><h1>Welcome to Titanic Prediction Model</h1></div>
+   <div class="w3-container">
+   <div class="w3-padding-18 w3-content w3-section w3-threequarter">
+   <img class="mySlides" src="{{url_for('static', filename='logo.jpg')}}" style="width:100%;height: 400px;">
+   <img class="mySlides" src="{{url_for('static', filename='body.jpeg')}}" style="width:100%;height: 400px;">
+   <img class="mySlides" src="{{url_for('static', filename='body1.jpg')}}" style="width:100%;height: 400px;">
+   <img class="mySlides" src="{{url_for('static', filename='body2.jpg')}}" style="width:100%;height: 400px;">
+ </div>
+ 
+ <div class="w3-container w3-padding-24 w3-quarter">  
+   <div class="w3-card-4 w3-padding-32" style="width:100%;height: 100%;" >
+     <header class="w3-container  w3-center">
+       <h5 class="w3-center w3-xlarge     w3-border-teal w3-teal w3-circle"> Sreeja Biswas </h5>
+     </header>
+     <div class="w3-container">
+       <p>1 new friend request</p>
+       <hr>
+       <img src="{{url_for('static', filename='self.jpeg')}}" alt="Avatar" class="w3-left w3-border-teal w3-margin-right" style="width: 70px">
+       <p>Student of CSE Dept!</p><br>
+     </div>
+     <button class="w3-button w3-xlarge w3-block w3-text-blue"><a href="gmail.com" target="_blank" style="text-decoration:none">+ Connect</a></button>
+   </div>
+ </div>
+ </div>
+ 
+ <div class="w3-container">
+   <form class="w3-container w3-card-2" action="{{ url_for('predict')}}"method="POST" style="width: 100%">
+   <h2 class="w3-teal  w3-xxlarge   w3-center w3-border-teal" >Input Form User</h2>
+   <p>      
+   <label class="w3-text-blue"><b>Pclass</b></label>
+   <input id="id1" class="w3-input w3-border" name="Pclass" placeholder="Pclass" required="required" type="number"></p>
+   <p>      
+   <label class="w3-text-blue"><b>Sex</b></label>
+   <input id="char" class="w3-input w3-border" name="Sex" type="number" placeholder="0:female,1:male" required="required" ></p>
+   <label class="w3-text-blue"><b>Age</b></label>
+   <input id="id1" class="w3-input w3-border" name="Age" type="number" placeholder="Age" required="required"></p>
+   <p>      
+   <label class="w3-text-blue"><b>SibSp</b></label>
+   <input id="id1" class="w3-input w3-border" name="SibSp" placeholder="SibSp" type="number" required="required"></p>
+   <label class="w3-text-blue"><b>Parch</b></label>
+   <input id="id1" class="w3-input w3-border" name="Parch" placeholder="Parch" type="number" required="required"></p>
+   <p>      
+   <label class="w3-text-blue"><b>Fare</b></label>
+   <input id="id1" class="w3-input w3-border" name="Fare" placeholder="Fare" type="number" required="required"></p>
+   
+   <p>      
+   <label class="w3-text-blue"><b>Embarked</b></label>
+   <input id="id1" class="w3-input w3-border" name="Embarked" placeholder="Embarked" type="number" required="required"></p>
+   
+   <button onclick="myFunction()" type="submit" class="btn btn-primary btn-block btn-large w3-text-teal w3-xlarge w3-border-teal w3-button w3-border" style="width:100%;">Predict</button>
+ </form>
+ </div>
+    <br>
+  </div>
+ <script>
+ var myIndex = 0;
+ carousel();
+ function carousel() {
+     var i;
+     var x = document.getElementsByClassName("mySlides");
+     for (i = 0; i < x.length; i++) {
+        x[i].style.display="none";  
+     }
+     myIndex++;
+     if (myIndex > x.length) {myIndex = 1}    
+     x[myIndex-1].style.display = "block";  
+     setTimeout(carousel, 2000); // Change image every 2 seconds
+          
+ }
+ </script>
+ </body>
+ </html>
+
+    
+
+
+
+
+
+
+
